@@ -49,7 +49,22 @@
  * @return {number}
  */
 var maxProfit = function(prices, fee) {
+  if (!prices || !prices.length) return 0
 
+  const hold = []
+  const sold = []
+
+  const len = prices.length
+  for (let i = 0; i < len; i++) {
+    if (i === 0) {
+      hold[i] = 0 - prices[i]
+      sold[i] = 0
+    } else {
+      hold[i] = Math.max(sold[i - 1] - prices[i], hold[i - 1])
+      sold[i] = Math.max(hold[i - 1] + prices[i] - fee, sold[i - 1])
+    }
+  }
+
+  return Math.max(hold[len - 1], sold[len - 1])
 };
 // @lc code=end
-

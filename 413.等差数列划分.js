@@ -55,7 +55,27 @@
  * @return {number}
  */
 var numberOfArithmeticSlices = function(nums) {
+  if (!nums || nums.length < 3) return 0
 
+  const getSubArrCount = (maxCount) => {
+    const x = maxCount - 2
+    return x * (x + 1) / 2
+  }
+
+  let sum = 0
+  const dp = [1, 2]
+
+  for (let i = 2; i < nums.length; i++) {
+    dp[i] = nums[i] - nums[i - 1] === nums[i - 1] - nums[i - 2]
+      ? dp[i - 1] + 1
+      : 2
+
+    if (dp[i] >= 3) sum += getSubArrCount(dp[i])
+    if (dp[i] >= 4) sum -= getSubArrCount(dp[i - 1])
+  }
+
+  // console.log(dp)
+  return sum
 };
 // @lc code=end
 

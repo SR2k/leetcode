@@ -71,7 +71,26 @@
  * @return {number}
  */
 var maxProfit = function(prices) {
+  const hold1 = []
+  const sold1 = []
+  const hold2 = []
+  const sold2 = []
 
+  for (let i = 0; i < prices.length; i++) {
+    if (i === 0) {
+      hold1[i] = 0 - prices[1]
+    } else if (i === 1) {
+      hold1[i] = Math.max(0 - prices[0], 0 - prices[1])
+      sold[i] = hold1[i - 1] + prices[i]
+    } else if (i === 2) {
+      hold1[i] = sold1[i - 1] - 
+      sold[i] = hold1[i - 1] + prices[i]
+    } else {
+
+    }
+  }
+
+  return Math.max(0, sold1[prices.length - 1],  sold2[prices.length - 1])
 };
 // @lc code=end
 
