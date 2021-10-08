@@ -39,14 +39,45 @@
 # 提示：
 # 
 # 
-# 0 
+# 0
 # s[i] 为 'A'、'C'、'G' 或 'T'
 # 
 # 
 #
 
 # @lc code=start
+H, L = 10, 10
+CHAR_CODE = { 'A': 1, 'C': 2, 'G': 3, 'T': 4 }
+
+
 class Solution:
+    def findRepeatedDnaSequences(self, s: str) -> list[str]:
+        if len(s) <= 10:
+            return []
+
+        seen, result = {}, set()
+        i, hash = 0, 0
+        while i < L:
+            hash = hash * H + CHAR_CODE[s[i]]
+            i += 1
+        seen[hash] = s[:i]
+
+        while i < len(s):
+            hash -= CHAR_CODE[s[i - 10]] * (H ** (L - 1))
+            hash *= H
+            hash += CHAR_CODE[s[i]]
+
+            if hash in seen:
+                result.add(hash)
+            else:
+                seen[hash] = s[i - L + 1:i + 1]
+
+            i += 1
+
+        return list(map(lambda hash: seen[hash], result))
+# @lc code=end
+
+class Solution1:
     def findRepeatedDnaSequences(self, s: str) -> list[str]:
         ret, len_s = [], len(s)
         if len_s < 10:
@@ -64,5 +95,16 @@ class Solution:
             if freq[k] > 1:
                 ret.append(k)
         return ret
-# @lc code=end
+
+s = Solution()
+s1 = Solution1()
+
+print(s.findRepeatedDnaSequences('AAAAAAAGGGTTTAAACCCCCAAAAACCCCCCAAAAAGGGTTT'))
+print(s1.findRepeatedDnaSequences('AAAAAAAGGGTTTAAACCCCCAAAAACCCCCCAAAAAGGGTTT'))
+
+print(s.findRepeatedDnaSequences('AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT'))
+print(s1.findRepeatedDnaSequences('AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT'))
+
+print(s.findRepeatedDnaSequences('AAAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCAAAAAAAAAAAA'))
+print(s1.findRepeatedDnaSequences('AAAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCAAAAAAAAAAAA'))
 

@@ -72,39 +72,83 @@
 # @lc code=start
 class Solution:
     def fractionToDecimal(self, numerator: int, denominator: int) -> str:
-        if numerator == 0: return str(0)
-
         sign = '-' if (numerator > 0 and denominator < 0) or (numerator < 0 and denominator > 0) else ''
-        numerator, denominator = abs(numerator), abs(denominator)
+        numerator, denominator  = abs(numerator), abs(denominator)
 
-        whole = sign + str(numerator // denominator)
+        whole = str(numerator // denominator)
         numerator %= denominator
 
-        if not numerator: return whole
+        if not numerator:
+            return f"{sign}{whole}"
 
-        decimal: list[str] = []
-        numerator *= 10
-        visited: dict[int, int] = {}
+        decimal = ''
+        last_seen = {}
 
         while numerator:
-            if numerator in visited:
-                non_repeat = "".join(decimal[:visited[numerator]])
-                repeat = "".join(decimal[visited[numerator]:])
-                return whole + '.' + non_repeat +  '(' + repeat + ')'
-            visited[numerator] = len(decimal)
+            numerator *= 10
+            if numerator in last_seen:
+                k = last_seen[numerator]
+                decimal = f"{decimal[:k]}({decimal[k:]})"
+                break
 
-            while numerator < denominator:
-                numerator *= 10
-                decimal += '0'
+            last_seen[numerator] = len(decimal)
 
-            digit = numerator // denominator
-            decimal.append(str(digit))
+            decimal += str(numerator // denominator)
             numerator %= denominator
 
-            if numerator == 0:
-                return whole + '.' + "".join(decimal)
+        return f"{sign}{whole}.{decimal}"
 
-            numerator *= 10
+# class Solution:
+#     def fractionToDecimal(self, numerator: int, denominator: int) -> str:
+#         if numerator == 0: return str(0)
 
+#         sign = '-' if (numerator > 0 and denominator < 0) or (numerator < 0 and denominator > 0) else ''
+#         numerator, denominator = abs(numerator), abs(denominator)
 
+#         whole = sign + str(numerator // denominator)
+#         numerator %= denominator
+
+#         if not numerator: return whole
+
+#         decimal: list[str] = []
+#         numerator *= 10
+#         visited: dict[int, int] = {}
+
+#         while numerator:
+#             if numerator in visited:
+#                 non_repeat = "".join(decimal[:visited[numerator]])
+#                 repeat = "".join(decimal[visited[numerator]:])
+#                 return whole + '.' + non_repeat +  '(' + repeat + ')'
+#             visited[numerator] = len(decimal)
+
+#             while numerator < denominator:
+#                 numerator *= 10
+#                 decimal += '0'
+
+#             digit = numerator // denominator
+#             decimal.append(str(digit))
+#             numerator %= denominator
+
+#             if numerator == 0:
+#                 return whole + '.' + "".join(decimal)
+
+#             numerator *= 10
 # @lc code=end
+
+print(Solution().fractionToDecimal(4, 333))
+print(Solution().fractionToDecimal(40, 333))
+print(Solution().fractionToDecimal(7, 14))
+print(Solution().fractionToDecimal(77, 14))
+print(Solution().fractionToDecimal(1, 2))
+print(Solution().fractionToDecimal(2, 1))
+print(Solution().fractionToDecimal(2, 3))
+print(Solution().fractionToDecimal(0, 3))
+print(Solution().fractionToDecimal(3, 7))
+
+print(Solution().fractionToDecimal(-4, 333))
+print(Solution().fractionToDecimal(7, -14))
+print(Solution().fractionToDecimal(-3, -7))
+print(Solution().fractionToDecimal(-3, 7))
+
+print(Solution().fractionToDecimal(-2147483648, 1))
+
