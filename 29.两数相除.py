@@ -51,33 +51,63 @@ NEG_INT_MAX = 2 ** 31
 POS_INT_MAX = NEG_INT_MAX - 1
 
 class Solution:
+    def helper(self, dividend: int, divisor: int) -> int:
+        if (dividend < 0 and divisor > 0) or (dividend > 0 and divisor < 0):
+            return -self.helper(abs(dividend), abs(divisor))
+
+        dividend, divisor = abs(dividend), abs(divisor)
+
+        if dividend < divisor:
+            return 0
+
+        temp, result = divisor, 1
+        while temp + temp < dividend:
+            temp += temp
+            result += result
+
+        return result + self.helper(dividend - temp, divisor)
+
     def divide(self, dividend: int, divisor: int) -> int:
-        if dividend == 0: return 0
-
-        is_negative = (dividend > 0 and divisor < 0) or (dividend < 0 and divisor > 0)
-        abs_max = NEG_INT_MAX if is_negative else POS_INT_MAX
-        dividend = dividend if dividend > 0 else -dividend
-        divisor = divisor if divisor > 0 else -divisor
-        temp_arr, count_arr = [0], [0]
-
-        while temp_arr[-1] < dividend:
-            if temp_arr[-1] == 0:
-                temp_arr.append(divisor)
-                count_arr.append(1)
-            else:
-                temp_arr.append(temp_arr[-1] + temp_arr[-1])
-                count_arr.append(count_arr[-1] + count_arr[-1])
-
-        temp_num, ret = 0, 0
-        for i in range(len(temp_arr) - 1, 0, -1):
-            while temp_num <= dividend - temp_arr[i]:
-                if ret > abs_max - count_arr[i]:
-                    return POS_INT_MAX
-                temp_num += temp_arr[i]
-                ret += count_arr[i]
-
-        return -ret if is_negative else ret
-
+        return min(max(self.helper(dividend, divisor), -NEG_INT_MAX), POS_INT_MAX)
 # @lc code=end
 
-# print(Solution().divide(-2147483648, -2147483648))
+s = Solution()
+# print(s.divide(-2147483648, -2147483648))
+# print(s.divide(-2147483648, -2147483648))
+# print(s.divide(-2147483648, -1))
+print(s.divide(-2147483648, 1))
+# print(s.divide(-2147483648, -20))
+# print(s.divide(10, -20))
+# print(s.divide(10, 3))
+# print(s.divide(7, -3))
+
+# NEG_INT_MAX = 2 ** 31
+# POS_INT_MAX = NEG_INT_MAX - 1
+
+# class Solution:
+#     def divide(self, dividend: int, divisor: int) -> int:
+#         if dividend == 0: return 0
+
+#         is_negative = (dividend > 0 and divisor < 0) or (dividend < 0 and divisor > 0)
+#         abs_max = NEG_INT_MAX if is_negative else POS_INT_MAX
+#         dividend = dividend if dividend > 0 else -dividend
+#         divisor = divisor if divisor > 0 else -divisor
+#         temp_arr, count_arr = [0], [0]
+
+#         while temp_arr[-1] < dividend:
+#             if temp_arr[-1] == 0:
+#                 temp_arr.append(divisor)
+#                 count_arr.append(1)
+#             else:
+#                 temp_arr.append(temp_arr[-1] + temp_arr[-1])
+#                 count_arr.append(count_arr[-1] + count_arr[-1])
+
+#         temp_num, ret = 0, 0
+#         for i in range(len(temp_arr) - 1, 0, -1):
+#             while temp_num <= dividend - temp_arr[i]:
+#                 if ret > abs_max - count_arr[i]:
+#                     return POS_INT_MAX
+#                 temp_num += temp_arr[i]
+#                 ret += count_arr[i]
+
+#         return -ret if is_negative else ret
