@@ -12,7 +12,7 @@
 # Total Accepted:    25.7K
 # Total Submissions: 53.4K
 # Testcase Example:  '["WordDictionary","addWord","addWord","addWord","search","search","search","search"]\n' +
-  '[[],["bad"],["dad"],["mad"],["pad"],["bad"],[".ad"],["b.."]]'
+#  '[[],["bad"],["dad"],["mad"],["pad"],["bad"],[".ad"],["b.."]]'
 #
 # 请你设计一个数据结构，支持 添加新单词 和 查找字符串是否与任何先前添加的字符串匹配 。
 # 
