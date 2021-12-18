@@ -48,23 +48,38 @@
 #
 
 # @lc code=start
+# EMPTY, SHIP = '.', 'X'
+
+# class Solution:
+#     def countBattleships(self, board: list[list[str]]) -> int:
+#         m, n = len(board), len(board[0])
+#         ret = 0
+
+#         def helper(i: int, j: int) -> int:
+#             if i >= m or j >= n: return 0
+#             if board[i][j] == EMPTY: return 0
+#             board[i][j] = EMPTY
+#             return 1 + helper(i + 1, j) + helper(i, j + 1)
+
+#         for i in range(m):
+#             for j in range(n):
+#                 if helper(i, j): ret += 1
+
+#         return ret
+
+
 EMPTY = '.'
 
 class Solution:
     def countBattleships(self, board: list[list[str]]) -> int:
-        m, n = len(board), len(board[0])
-        ret = 0
+        result = 0
 
-        def helper(i: int, j: int) -> int:
-            if i >= m or j >= n: return 0
-            if board[i][j] == EMPTY: return 0
-            board[i][j] = EMPTY
-            return 1 + helper(i + 1, j) + helper(i, j + 1)
+        for i, row in enumerate(board):
+            for j, cell in enumerate(row):
+                if cell == EMPTY:
+                    continue
+                if (i == 0 or board[i - 1][j] == EMPTY) and (j == 0 or board[i][j - 1] == EMPTY):
+                    result += 1
 
-        for i in range(m):
-            for j in range(n):
-                if helper(i, j): ret += 1
-
-        return ret
+        return result
 # @lc code=end
-
