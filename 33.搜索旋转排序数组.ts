@@ -65,27 +65,26 @@ export
 // @lc code=start
 function search(nums: number[], target: number): number {
   const pivot = nums[0]
-  let left = 0, right = nums.length - 1
+  let left = 0; let
+    right = nums.length - 1
   while (left + 1 < right) {
     const middle = Math.floor((left + right) / 2)
-    const nums_middle = nums[middle]
+    const numMiddle = nums[middle]
 
-    if (nums_middle === target) {
+    if (numMiddle === target) {
       return middle
     }
 
-    if (nums_middle >= pivot) {
-      if (target < pivot || target > nums_middle) {
+    if (numMiddle >= pivot) {
+      if (target < pivot || target > numMiddle) {
         left = middle
       } else {
         right = middle
       }
+    } else if (target >= pivot || target < numMiddle) {
+      right = middle
     } else {
-      if (target >= pivot || target < nums_middle) {
-        right = middle
-      } else {
-        left = middle
-      }
+      left = middle
     }
   }
 

@@ -1,7 +1,7 @@
 // from collections import deque
 // from typing import Optional
 
-const serialize = <T>(root: TreeNode<T>|null): Array<T|null> => {
+const serialize = <T>(root: TreeNode<T> | null): Array<T | null> => {
   const queue = [root]
   const result = []
 
@@ -20,7 +20,7 @@ const serialize = <T>(root: TreeNode<T>|null): Array<T|null> => {
   return result
 }
 
-const parse = <T>(serialized: Array<T|null>): TreeNode<T>|null => {
+const parse = <T>(serialized: Array<T | null>): TreeNode<T> | null => {
   if (!serialized.length) return null
 
   const values = [...serialized]
@@ -47,7 +47,7 @@ const parse = <T>(serialized: Array<T|null>): TreeNode<T>|null => {
 }
 
 export class TreeNode<T = any> {
-  static fromArray<T>(serialized: Array<T|null>) {
+  static fromArray<T>(serialized: Array<T | null>) {
     return parse(serialized)
   }
 

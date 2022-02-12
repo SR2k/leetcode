@@ -65,10 +65,11 @@ function reverseList(head: ListNode | null): ListNode | null {
     return head
   }
 
-  let prev: ListNode|null = null, curr: ListNode|null = head
+  let prev: ListNode | null = null; let
+    curr: ListNode | null = head
 
   while (curr) {
-    const next: ListNode|null = curr.next
+    const { next } = curr
     curr.next = prev
     prev = curr!
     curr = next

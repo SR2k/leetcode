@@ -52,14 +52,14 @@
 export
 // @lc code=start
 function maxProfit(prices: number[]): number {
-  let maxProfit = 0
+  let result = 0
   let prevMinPrice = Infinity
 
   for (const price of prices) {
-    maxProfit = Math.max(maxProfit, price - prevMinPrice)
+    result = Math.max(result, price - prevMinPrice)
     prevMinPrice = Math.min(prevMinPrice, price)
   }
 
-  return maxProfit
+  return result
 }
 // @lc code=end

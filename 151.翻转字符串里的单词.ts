@@ -95,7 +95,8 @@ function reverseWords(_s: string): string {
   const str = [..._s]
   str.reverse()
 
-  let p = 0, end = 0
+  let p = 0; let
+    end = 0
   let tail = 0
   while (end < str.length) {
     while (end < str.length && str[end] === ' ') {
@@ -123,21 +124,21 @@ function reverseWords(_s: string): string {
 
   let i = 0
   while (i < str.length) {
-    let end = i
-    while (end + 1 < str.length && str[end + 1] !== ' ') {
-      end += 1
+    let wordEnd = i
+    while (wordEnd + 1 < str.length && str[wordEnd + 1] !== ' ') {
+      wordEnd += 1
     }
 
-    let j = end
+    let j = wordEnd
     while (i < j) {
       [str[i], str[j]] = [str[j], str[i]]
       i += 1
       j -= 1
     }
 
-    i = end + 2
+    i = wordEnd + 2
   }
 
-  return str.join("")
+  return str.join('')
 }
 // @lc code=end

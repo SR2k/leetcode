@@ -13,7 +13,7 @@
  * Total Submissions: 1.2M
  * Testcase Example:  '[1,2,4]\n[1,3,4]'
  *
- * 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 
+ * 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
  *
  *
  *
@@ -56,7 +56,7 @@ export
 // @lc code=start
 function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
   const dummyHead = new ListNode(-1)
-  let prev: ListNode|null = dummyHead
+  let prev: ListNode | null = dummyHead
 
   while (list1 && list2) {
     if (list1.val <= list2.val) {

@@ -47,13 +47,15 @@
 export
 // @lc code=start
 function spiralOrder(matrix: number[][]): number[] {
-  const m = matrix.length, n = matrix[0].length
+  const m = matrix.length; const
+    n = matrix[0].length
   const DIRECTIONS: Array<[number, number]> = [[0, 1], [1, 0], [0, -1], [-1, 0]]
   const edges = [n - 1, m - 1, 0, 0]
   let direction = Directions.Right
   const result = []
 
-  let i = 0, j = -1
+  let i = 0; let
+    j = -1
   while (result.length < m * n) {
     switch (direction) {
       case Directions.Right: {

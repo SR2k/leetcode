@@ -72,7 +72,7 @@ function letterCombinations(digits: string): string[] {
 
   function helper(curr: string[], index: number) {
     if (index >= digits.length) {
-      result.push(curr.join(""))
+      result.push(curr.join(''))
       return
     }
 

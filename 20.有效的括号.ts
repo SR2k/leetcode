@@ -82,7 +82,7 @@ function isValid(s: string): boolean {
   for (const char of s) {
     if (!map[char]) {
       stack.push(char)
-    } else if (!stack.length || stack.pop() != map[char]) {
+    } else if (!stack.length || stack.pop() !== map[char]) {
       return false
     }
   }
@@ -90,4 +90,3 @@ function isValid(s: string): boolean {
   return stack.length === 0
 }
 // @lc code=end
-

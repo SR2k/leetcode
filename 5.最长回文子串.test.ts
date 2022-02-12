@@ -1,4 +1,4 @@
-import { longestPalindrome } from "./5.最长回文子串"
+import { longestPalindrome } from './5.最长回文子串'
 
 describe('longestPalindrome', () => {
   it('works when longest length is odd', () => {
@@ -12,9 +12,9 @@ describe('longestPalindrome', () => {
   })
 
   it('works for leetcode test cases', () => {
-    expect(longestPalindrome("babad")).toBe("bab")
-    expect(longestPalindrome("cbbd")).toBe("bb")
-    expect(longestPalindrome("a")).toBe("a")
-    expect(longestPalindrome("ac")).toBe("a")
+    expect(longestPalindrome('babad')).toBe('bab')
+    expect(longestPalindrome('cbbd')).toBe('bb')
+    expect(longestPalindrome('a')).toBe('a')
+    expect(longestPalindrome('ac')).toBe('a')
   })
 })

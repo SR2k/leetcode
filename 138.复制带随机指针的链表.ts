@@ -82,17 +82,19 @@
  */
 
 export class Node {
-  val: number;
-  next: Node | null;
-  random: Node | null;
+  val: number
+
+  next: Node | null
+
+  random: Node | null
 
   constructor(val?: number, next?: Node, random?: Node) {
-    this.val = val === undefined ? 0 : val;
-    this.next = next === undefined ? null : next;
-    this.random = random === undefined ? null : random;
+    this.val = val === undefined ? 0 : val
+    this.next = next === undefined ? null : next
+    this.random = random === undefined ? null : random
   }
 
-  static parse(s: Array<[number, number|null]>) {
+  static parse(s: Array<[number, number | null]>) {
     // [[3,null],[3,0],[3,null]]
     const dummyHead = new Node()
     const indexToNode: Node[] = []
@@ -106,7 +108,7 @@ export class Node {
     }
 
     let curr = dummyHead
-    for (const [_, randomIndex] of s) {
+    for (const [, randomIndex] of s) {
       curr = curr.next!
       if (randomIndex !== null) {
         curr.random = indexToNode[randomIndex]
@@ -117,11 +119,11 @@ export class Node {
   }
 
   serialize() {
-    const nodes: Array<[number, Node|null]> = []
+    const nodes: Array<[number, Node | null]> = []
     const orders = new Map<Node, number>()
 
     let i = 0
-    let curr: Node|null = this
+    let curr: Node | null = this
 
     while (curr) {
       orders.set(curr, i)
@@ -141,7 +143,7 @@ function copyRandomList(head: Node | null): Node | null {
   const dummyHead = new Node(-1)
   let prev = dummyHead
 
-  function getNode(originalNode: Node|null) {
+  function getNode(originalNode: Node | null) {
     if (!originalNode) return originalNode
 
     if (!map.has(originalNode)) {

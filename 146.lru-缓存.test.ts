@@ -1,4 +1,4 @@
-import { LRUCache } from "./146.lru-缓存"
+import { LRUCache } from './146.lru-缓存'
 
 describe('LRUCache', () => {
   let lruCache: LRUCache
@@ -12,7 +12,7 @@ describe('LRUCache', () => {
     lruCache.put(2, 20)
     expect(lruCache.get(1)).toBe(10)
     expect(lruCache.get(2)).toBe(20)
-    
+
     lruCache.put(2, 30)
     expect(lruCache.get(2)).toBe(30)
   })

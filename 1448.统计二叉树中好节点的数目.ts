@@ -61,12 +61,11 @@ import { TreeNode } from './commons/Tree'
 export
 // @lc code=start
 function goodNodes(root: TreeNode): number {
-  function helper(node: TreeNode|null, maxValue: number): number {
+  function helper(node: TreeNode | null, maxValue: number): number {
     if (!node) return 0
 
-    const result =
-      helper(node.left, Math.max(node.val, maxValue)) +
-      helper(node.right, Math.max(node.val, maxValue))
+    const result = helper(node.left, Math.max(node.val, maxValue))
+      + helper(node.right, Math.max(node.val, maxValue))
 
     if (maxValue <= node.val) {
       return result + 1
