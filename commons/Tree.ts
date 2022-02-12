@@ -31,13 +31,13 @@ const parse = <T>(serialized: Array<T | null>): TreeNode<T> | null => {
     const currNode = nodes.shift()!
 
     const leftVal = values.shift()
-    if (leftVal !== null) {
+    if (leftVal !== null && typeof leftVal !== 'undefined') {
       currNode.left = new TreeNode(leftVal)
       nodes.push(currNode.left)
     }
 
     const rightVal = values.shift()
-    if (rightVal !== null) {
+    if (rightVal !== null && typeof rightVal !== 'undefined') {
       currNode.right = new TreeNode(rightVal)
       nodes.push(currNode.right)
     }
