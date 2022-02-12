@@ -88,6 +88,6 @@ function isValid(s: string): boolean {
   }
 
   return stack.length === 0
-};
+}
 // @lc code=end
 

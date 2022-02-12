@@ -86,5 +86,5 @@ function lengthOfLongestSubstring(s: string): number {
   }
 
   return result
-};
+}
 // @lc code=end

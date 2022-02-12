@@ -73,7 +73,7 @@ function numIslands(grid: string[][]): number {
   })
 
   return result
-};
+}
 
 const DIRECTIONS = [[0, 1], [0, -1], [1, 0], [-1, 0]]
 

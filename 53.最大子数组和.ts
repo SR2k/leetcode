@@ -69,5 +69,5 @@ function maxSubArray(nums: number[]): number {
   }
 
   return result
-};
+}
 // @lc code=end

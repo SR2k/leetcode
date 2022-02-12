@@ -79,5 +79,5 @@ function longestPalindrome(s: string): string {
   }
 
   return s.slice(result[0], result[1] + 1)
-};
+}
 // @lc code=end

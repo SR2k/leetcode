@@ -79,6 +79,6 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
   }
 
   return dummy.next
-};
+}
 // @lc code=end
 
