@@ -1,0 +1,19 @@
+import { rotate } from './48.旋转图像'
+
+describe('48. Rotate Image', () => {
+  it('should work', () => {
+    let grid: number[][]
+
+    grid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    rotate(grid)
+    expect(grid).toStrictEqual([[7, 4, 1], [8, 5, 2], [9, 6, 3]])
+
+    grid = [[5, 1, 9, 11], [2, 4, 8, 10], [13, 3, 6, 7], [15, 14, 12, 16]]
+    rotate(grid)
+    expect(grid).toStrictEqual([[15, 13, 2, 5], [14, 3, 4, 1], [12, 6, 8, 9], [16, 7, 10, 11]])
+
+    grid = [[5]]
+    rotate(grid)
+    expect(grid).toStrictEqual([[5]])
+  })
+})

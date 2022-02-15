@@ -69,7 +69,8 @@ function reverseList(head: ListNode | null): ListNode | null {
     curr: ListNode | null = head
 
   while (curr) {
-    const { next } = curr
+    // eslint-disable-next-line prefer-destructuring
+    const next: ListNode | null = curr.next
     curr.next = prev
     prev = curr!
     curr = next
