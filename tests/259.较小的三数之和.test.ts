@@ -1,4 +1,4 @@
-import { threeSumSmaller } from './259.较小的三数之和'
+import { threeSumSmaller } from '../259.较小的三数之和'
 
 describe('259. 3Sum Smaller', () => {
   it('should work', () => {

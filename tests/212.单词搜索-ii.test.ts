@@ -1,4 +1,4 @@
-import { findWords } from './212.单词搜索-ii'
+import { findWords } from '../212.单词搜索-ii'
 
 describe('212. Word Search II', () => {
   test('it works', () => {

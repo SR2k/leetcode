@@ -1,4 +1,4 @@
-import { romanToInt } from './13.罗马数字转整数'
+import { romanToInt } from '../13.罗马数字转整数'
 
 describe('13. Roman to Integer', () => {
   it('should work', () => {

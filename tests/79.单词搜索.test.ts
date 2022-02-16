@@ -1,4 +1,4 @@
-import { exist } from './79.单词搜索'
+import { exist } from '../79.单词搜索'
 
 describe('79. Word Search', () => {
   it('should work', () => {

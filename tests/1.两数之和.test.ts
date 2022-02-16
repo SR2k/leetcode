@@ -1,4 +1,4 @@
-import { twoSum } from './1.两数之和'
+import { twoSum } from '../1.两数之和'
 
 describe('twoSum', () => {
   it('works', () => {

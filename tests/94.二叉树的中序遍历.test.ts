@@ -1,5 +1,5 @@
-import { TreeNode } from './commons/Tree'
-import { inorderTraversal } from './94.二叉树的中序遍历'
+import { TreeNode } from '../commons/Tree'
+import { inorderTraversal } from '../94.二叉树的中序遍历'
 
 describe('94. Binary Tree Inorder Traversal', () => {
   it('should work', () => {

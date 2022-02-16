@@ -1,4 +1,4 @@
-import { lengthOfLongestSubstring } from './3.无重复字符的最长子串'
+import { lengthOfLongestSubstring } from '../3.无重复字符的最长子串'
 
 describe('lengthOfLongestSubstring', () => {
   it('works', () => {

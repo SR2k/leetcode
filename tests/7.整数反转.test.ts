@@ -1,4 +1,4 @@
-import { reverse } from './7.整数反转'
+import { reverse } from '../7.整数反转'
 
 describe('7. Reverse Integer', () => {
   it('should work', () => {

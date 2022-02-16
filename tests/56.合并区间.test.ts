@@ -1,4 +1,4 @@
-import { merge } from './56.合并区间'
+import { merge } from '../56.合并区间'
 
 describe('56. Merge Intervals', () => {
   it('should work', () => {

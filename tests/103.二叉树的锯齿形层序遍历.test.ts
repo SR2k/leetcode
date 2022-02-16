@@ -1,5 +1,5 @@
-import { TreeNode } from './commons/Tree'
-import { zigzagLevelOrder } from './103.二叉树的锯齿形层序遍历'
+import { TreeNode } from '../commons/Tree'
+import { zigzagLevelOrder } from '../103.二叉树的锯齿形层序遍历'
 
 describe('103. Binary Tree Zigzag Level Order Traversal', () => {
   it('should work', () => {

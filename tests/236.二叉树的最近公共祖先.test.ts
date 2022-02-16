@@ -1,5 +1,5 @@
-import { TreeNode } from './commons/Tree'
-import { lowestCommonAncestor } from './236.二叉树的最近公共祖先'
+import { TreeNode } from '../commons/Tree'
+import { lowestCommonAncestor } from '../236.二叉树的最近公共祖先'
 
 describe('236. Lowest Common Ancestor of a Binary Tree', () => {
   it('works', () => {

@@ -1,4 +1,4 @@
-import { letterCombinations } from './17.电话号码的字母组合'
+import { letterCombinations } from '../17.电话号码的字母组合'
 
 describe('letter-combinations-of-a-phone-number', () => {
   it('works', () => {

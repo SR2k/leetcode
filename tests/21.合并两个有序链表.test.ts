@@ -1,5 +1,5 @@
-import { mergeTwoLists } from './21.合并两个有序链表'
-import { ListNode } from './commons/list'
+import { mergeTwoLists } from '../21.合并两个有序链表'
+import { ListNode } from '../commons/list'
 
 describe('mergeTwoLists', () => {
   it('works', () => {

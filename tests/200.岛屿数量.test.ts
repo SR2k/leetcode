@@ -1,4 +1,4 @@
-import { numIslands } from './200.岛屿数量'
+import { numIslands } from '../200.岛屿数量'
 
 describe('numIslands', () => {
   it('works', () => {

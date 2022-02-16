@@ -1,4 +1,4 @@
-import { longestPalindrome } from './5.最长回文子串'
+import { longestPalindrome } from '../5.最长回文子串'
 
 describe('longestPalindrome', () => {
   it('works when longest length is odd', () => {

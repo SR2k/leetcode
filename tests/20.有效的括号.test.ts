@@ -1,4 +1,4 @@
-import { isValid } from './20.有效的括号'
+import { isValid } from '../20.有效的括号'
 
 describe('validateParentheses', () => {
   it('works', () => {

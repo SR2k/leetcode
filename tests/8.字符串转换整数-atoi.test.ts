@@ -1,4 +1,4 @@
-import { myAtoi } from './8.字符串转换整数-atoi'
+import { myAtoi } from '../8.字符串转换整数-atoi'
 
 describe('8. String to Integer (atoi)', () => {
   it('should work for valid strings', () => {

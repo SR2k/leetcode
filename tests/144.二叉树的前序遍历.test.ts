@@ -1,5 +1,5 @@
-import { preorderTraversal } from './144.二叉树的前序遍历'
-import { TreeNode } from './commons/Tree'
+import { preorderTraversal } from '../144.二叉树的前序遍历'
+import { TreeNode } from '../commons/Tree'
 
 describe('144. Binary Tree Preorder Traversal', () => {
   it('should work', () => {

@@ -1,4 +1,4 @@
-import { LRUCache } from './146.lru-缓存'
+import { LRUCache } from '../146.lru-缓存'
 
 describe('LRUCache', () => {
   let lruCache: LRUCache

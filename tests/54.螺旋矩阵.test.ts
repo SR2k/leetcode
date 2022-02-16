@@ -1,4 +1,4 @@
-import { spiralOrder } from './54.螺旋矩阵'
+import { spiralOrder } from '../54.螺旋矩阵'
 
 describe('spiralOrder', () => {
   it('works', () => {

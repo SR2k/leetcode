@@ -1,4 +1,4 @@
-import { search } from './33.搜索旋转排序数组'
+import { search } from '../33.搜索旋转排序数组'
 
 describe('Search in Rotated Sorted Array', () => {
   it('works', () => {

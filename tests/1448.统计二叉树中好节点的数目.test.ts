@@ -1,5 +1,5 @@
-import { goodNodes, goodNodesIteration } from './1448.统计二叉树中好节点的数目'
-import { TreeNode } from './commons/Tree'
+import { goodNodes, goodNodesIteration } from '../1448.统计二叉树中好节点的数目'
+import { TreeNode } from '../commons/Tree'
 
 describe('Count Good Nodes in Binary Tree', () => {
   it('works', () => {

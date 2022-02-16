@@ -1,4 +1,4 @@
-import { maxSubArray } from './53.最大子数组和'
+import { maxSubArray } from '../53.最大子数组和'
 
 describe('maxSubArray', () => {
   it('works', () => {

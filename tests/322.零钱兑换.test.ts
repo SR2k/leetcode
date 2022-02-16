@@ -1,4 +1,4 @@
-import { coinChange } from './322.零钱兑换'
+import { coinChange } from '../322.零钱兑换'
 
 describe('322. Coin Change', () => {
   it('works', () => {

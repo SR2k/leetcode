@@ -1,4 +1,4 @@
-import { groupAnagrams } from './49.字母异位词分组'
+import { groupAnagrams } from '../49.字母异位词分组'
 
 const sorted = (arr: string[][]) => arr
   .map((x) => x.sort())

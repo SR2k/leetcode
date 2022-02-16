@@ -1,4 +1,4 @@
-import { threeSumClosest } from './16.最接近的三数之和'
+import { threeSumClosest } from '../16.最接近的三数之和'
 
 describe('16. 3Sum Closest', () => {
   it('should work', () => {

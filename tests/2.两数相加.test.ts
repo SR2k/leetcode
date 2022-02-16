@@ -1,5 +1,5 @@
-import { addTwoNumbers } from './2.两数相加'
-import { ListNode } from './commons/list'
+import { addTwoNumbers } from '../2.两数相加'
+import { ListNode } from '../commons/list'
 
 describe('addTwoNumbers', () => {
   it('works for zeros', () => {

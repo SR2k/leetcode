@@ -1,5 +1,5 @@
-import { threeSum } from './15.三数之和'
-import { deepSorted } from './commons/utils'
+import { threeSum } from '../15.三数之和'
+import { deepSorted } from '../commons/utils'
 
 describe('15. 3Sum', () => {
   it('should work', () => {

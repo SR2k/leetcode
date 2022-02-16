@@ -1,4 +1,4 @@
-import { minMeetingRooms } from './253.会议室-ii'
+import { minMeetingRooms } from '../253.会议室-ii'
 
 describe('253. Meeting Rooms II', () => {
   it('should work', () => {

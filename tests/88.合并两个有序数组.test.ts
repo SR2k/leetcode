@@ -1,4 +1,4 @@
-import { merge } from './88.合并两个有序数组'
+import { merge } from '../88.合并两个有序数组'
 
 describe('88. Merge Sorted Array', () => {
   it('works for non empty arrays', () => {

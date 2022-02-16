@@ -1,5 +1,5 @@
-import { permute } from './46.全排列'
-import { mergeSorted } from './commons/utils'
+import { permute } from '../46.全排列'
+import { mergeSorted } from '../commons/utils'
 
 describe('46. Permutations', () => {
   it('works', () => {

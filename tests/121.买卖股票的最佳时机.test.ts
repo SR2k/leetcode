@@ -1,4 +1,4 @@
-import { maxProfit } from './121.买卖股票的最佳时机'
+import { maxProfit } from '../121.买卖股票的最佳时机'
 
 describe('Best Time to Buy and Sell Stoks', () => {
   it('works', () => {

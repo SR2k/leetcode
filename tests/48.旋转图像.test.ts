@@ -1,4 +1,4 @@
-import { rotate } from './48.旋转图像'
+import { rotate } from '../48.旋转图像'
 
 describe('48. Rotate Image', () => {
   it('should work', () => {

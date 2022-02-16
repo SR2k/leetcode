@@ -1,4 +1,4 @@
-import { copyRandomList, Node } from './138.复制带随机指针的链表'
+import { copyRandomList, Node } from '../138.复制带随机指针的链表'
 
 describe('copyRandomList', () => {
   it('works', () => {

@@ -1,4 +1,4 @@
-import { generateParenthesis } from './22.括号生成'
+import { generateParenthesis } from '../22.括号生成'
 
 describe('22. Generate Parentheses', () => {
   it('should work', () => {

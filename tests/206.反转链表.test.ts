@@ -1,5 +1,5 @@
-import { reverseList } from './206.反转链表'
-import { ListNode } from './commons/list'
+import { reverseList } from '../206.反转链表'
+import { ListNode } from '../commons/list'
 
 describe('reverseList', () => {
   it('works', () => {

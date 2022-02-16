@@ -1,6 +1,6 @@
-import { TreeNode } from './commons/Tree'
-import { connect } from './116.填充每个节点的下一个右侧节点指针'
-import { Node } from './117.填充每个节点的下一个右侧节点指针-ii'
+import { TreeNode } from '../commons/Tree'
+import { connect } from '../116.填充每个节点的下一个右侧节点指针'
+import { Node } from '../117.填充每个节点的下一个右侧节点指针-ii'
 
 describe('116. Populating Next Right Pointers in Each Node', () => {
   it('should work', () => {
