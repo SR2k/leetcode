@@ -5,7 +5,7 @@ const serialize = <T>(root: TreeNode<T> | null): Array<T | null> => {
   const queue = [root]
   const result = []
 
-  while (queue) {
+  while (queue.length) {
     const curr = queue.shift()
 
     if (!curr) {
