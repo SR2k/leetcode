@@ -23,6 +23,7 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': 'off',
     'no-param-reassign': 'off',
     'default-case': 'off',
+    'prefer-destructuring': 'off',
     'max-len': 'off',
     'no-plusplus': 'off',
     'no-continue': 'off',
