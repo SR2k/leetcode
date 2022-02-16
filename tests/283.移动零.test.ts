@@ -2,7 +2,7 @@ import { moveZeroes } from '../283.移动零'
 
 describe('283.移动零', () => {
   it('should work', () => {
-    let nums: number[]
+    let nums: number[] = []
 
     nums = []
     moveZeroes(nums)
