@@ -1,7 +1,7 @@
 // from collections import deque
 // from typing import Optional
 
-const serialize = <T>(root: TreeNode<T> | null): Array<T | null> => {
+export const serialize = <T>(root: TreeNode<T> | null): Array<T | null> => {
   const queue = [root]
   const result = []
 
