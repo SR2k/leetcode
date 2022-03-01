@@ -17,6 +17,9 @@ export const serialize = <T>(root: TreeNode<T> | null): Array<T | null> => {
     }
   }
 
+  while (result.length && result[result.length - 1] === null) {
+    result.pop()
+  }
   return result
 }
 
