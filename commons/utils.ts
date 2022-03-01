@@ -3,3 +3,5 @@ export const deepSorted = (arr: number[][]) => arr.map((x) => [...x].sort((a, b)
 
 export const mergeSorted = (arr: number[][]) => arr.map((x) => [...x].sort((a, b) => a - b))
   .sort((a, b) => (a.join(',') > b.join(',') ? 1 : -1))
+
+export const mergeShallowSorted = (arr: number[][]) => [...arr].sort((a, b) => (a.join(',') > b.join(',') ? 1 : -1))

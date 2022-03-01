@@ -64,15 +64,41 @@ function permute(nums: number[]): number[][] {
     helper(i + 1)
 
     for (let j = i + 1; j < nums.length; j++) {
-      if (nums[i] !== nums[j]) {
-        [nums[i], nums[j]] = [nums[j], nums[i]]
-        helper(i + 1);
-        [nums[i], nums[j]] = [nums[j], nums[i]]
-      }
+      swap(nums, i, j)
+      helper(i + 1)
+      swap(nums, i, j)
     }
   }
   helper(0)
 
   return result
 }
+
+function swap(arr: any[], i: number, j: number) {
+  [arr[i], arr[j]] = [arr[j], arr[i]]
+}
 // @lc code=end
+
+// function permute(nums: number[]): number[][] {
+//   const result: number[][] = []
+
+//   function helper(i: number) {
+//     if (i >= nums.length) {
+//       result.push([...nums])
+//       return
+//     }
+
+//     helper(i + 1)
+
+//     for (let j = i + 1; j < nums.length; j++) {
+//       if (nums[i] !== nums[j]) {
+//         [nums[i], nums[j]] = [nums[j], nums[i]]
+//         helper(i + 1);
+//         [nums[i], nums[j]] = [nums[j], nums[i]]
+//       }
+//     }
+//   }
+//   helper(0)
+
+//   return result
+// }

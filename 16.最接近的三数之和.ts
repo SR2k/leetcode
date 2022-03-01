@@ -52,27 +52,57 @@ export
 // @lc code=start
 function threeSumClosest(nums: number[], target: number): number {
   nums.sort((a, b) => a - b)
-  let result = Infinity
+  let result = Number.MAX_SAFE_INTEGER
 
   for (let i = 0; i < nums.length - 2; i++) {
-    let j = i + 1; let
-      k = nums.length - 1
+    let k = nums.length - 1
 
-    while (j < k) {
-      const sum = nums[i] + nums[j] + nums[k]
-      if (sum === target) return sum
-      if (Math.abs(sum - target) < Math.abs(result - target)) {
-        result = sum
-      }
-
-      if (sum > target) {
+    for (let j = i + 1; j < nums.length - 1; j++) {
+      while (j < k && nums[i] + nums[j] + nums[k] > target) {
+        result = closest(target, nums[i] + nums[j] + nums[k], result)
         k -= 1
-      } else {
-        j += 1
       }
+      if (j === k) break
+
+      result = closest(target, nums[i] + nums[j] + nums[k], result)
     }
   }
 
   return result
 }
+
+function closest(target: number, a: number, b: number) {
+  const absA = Math.abs(a - target), absB = Math.abs(b - target)
+
+  if (absA < absB) {
+    return a
+  }
+  return b
+}
 // @lc code=end
+
+// function threeSumClosest(nums: number[], target: number): number {
+//   nums.sort((a, b) => a - b)
+//   let result = Infinity
+
+//   for (let i = 0; i < nums.length - 2; i++) {
+//     let j = i + 1; let
+//       k = nums.length - 1
+
+//     while (j < k) {
+//       const sum = nums[i] + nums[j] + nums[k]
+//       if (sum === target) return sum
+//       if (Math.abs(sum - target) < Math.abs(result - target)) {
+//         result = sum
+//       }
+
+//       if (sum > target) {
+//         k -= 1
+//       } else {
+//         j += 1
+//       }
+//     }
+//   }
+
+//   return result
+// }
