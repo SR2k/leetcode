@@ -62,7 +62,7 @@ function combinationSum2(candidates: number[], target: number): number[][] {
   for (const c of candidates) {
     counter.set(c, 1 + (counter.get(c) || 0))
   }
-  const c = Object.fromEntries(counter.entries())
+  // const c = Object.fromEntries(counter.entries())
   const keys = [...counter.keys()]
 
   const result: number[][] = []

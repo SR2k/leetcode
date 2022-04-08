@@ -16,6 +16,10 @@ class ListNode:
         self.next = next
 
 
+    def __repr__(self) -> str:
+        return str(self)
+
+
     def __str__(self) -> str:
         result = []
         curr = self
