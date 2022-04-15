@@ -53,66 +53,63 @@
 
 
 # @lc code=start
-def left(i: int):
-    return i * 2 + 1
-
-
-def right(i: int):
-    return left(i) + 1
-
-
-def parent(i: int):
+def parent_index(i: int):
     return (i - 1) // 2
 
 
-def shiftup(heap: list[tuple[int, int]], i: int):
-    p = parent(i)
-    while i > 0 and heap[p][0] > heap[i][0]:
-        heap[p], heap[i] = heap[i], heap[p]
-        i = p
-        p = parent(i)
+def left_index(i: int):
+    return i * 2 + 1
 
 
-def should_swap(heap: list[tuple[int, int]], parent: int, child: int):
-    if child is None or child >= len(heap):
-        return False
-    return heap[parent][0] > heap[child][0]
+def right_index(i: int):
+    return left_index(i) + 1
 
 
-def choose_child(heap: list, i: int):
-    l, r = left(i), right(i)
+def pick_child(arr: list, i: int):
+    l, r = left_index(i), right_index(i)
 
-    if l >= len(heap):
+    if l >= len(arr):
         return None
-    if r >= len(heap):
+    if r >= len(arr):
         return l
 
-    if heap[l][0] <= heap[r][0]:
+    if arr[l][0] <= arr[r][0]:
         return l
     return r
 
 
-def shiftdown(heap: list[tuple[int, int]], i: int):
-    # print(heap)
-    c = choose_child(heap, i)
-    while should_swap(heap, i, c):
-        heap[c], heap[i] = heap[i], heap[c]
+def swap(arr: list, i: int, j: int):
+    arr[i], arr[j] = arr[j], arr[i]
+
+
+def shift_up(arr: list[tuple[int, int]], i: int):
+    while i > 0:
+        p = parent_index(i)
+        if arr[p][0] <= arr[i][0]:
+            break
+        swap(arr, p, i)
+        i = p
+
+
+def shift_down(arr: list[tuple[int, int]], i: int):
+    while i < len(arr):
+        c = pick_child(arr, i)
+        if c is None or arr[i][0] <= arr[c][0]:
+            break
+        swap(arr, c, i)
         i = c
-        c = choose_child(heap, i)
-        # print(heap)
 
 
-def heappop(heap: list[tuple[int, int]]):
-    heap[0], heap[-1] = heap[-1], heap[0]
-    result = heap.pop()
-    shiftdown(heap, 0)
+def heappush(arr: list[tuple[int, int]], item: tuple[int, int]):
+    arr.append(item)
+    shift_up(arr, len(arr) - 1)
+
+
+def heappop(arr: list[tuple[int, int]]):
+    swap(arr, 0, len(arr) - 1)
+    result = arr.pop()
+    shift_down(arr, 0)
     return result
-
-
-def heappush(heap: list[tuple[int, int]], num: tuple[int, int]):
-    heap.append(num)
-    shiftup(heap, len(heap) - 1)
-
 
 class MedianFinder:
     def __init__(self):

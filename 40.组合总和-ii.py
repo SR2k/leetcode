@@ -88,24 +88,20 @@
 #         helper(0, 0, [])
 #         return result
 
-
-from collections import defaultdict
-
-
 class Solution:
     def combinationSum2(self, candidates: list[int], target: int) -> list[list[int]]:
-        result = []
         candidates.sort()
+        result = []
 
-
-        def helper(i: int, prev_sum: int, prev: list[int]):
-            if prev_sum == target:
-                result.append(prev + [])
+        def helper(i: int, sum: int, combination: list[int]):
+            if i == len(candidates):
+                if sum == target:
+                    result.append([] + combination)
                 return
-            if i >= len(candidates) or prev_sum > target:
+            if sum > target:
                 return
 
-            helper(i + 1, prev_sum, prev)
+            helper(i + 1, sum, combination)
 
             if i > 0 and candidates[i] == candidates[i - 1]:
                 return
@@ -113,14 +109,14 @@ class Solution:
             c = candidates[i]
             cnt = 0
             while i < len(candidates) and candidates[i] == c:
-                prev_sum += c
-                prev.append(c)
-                helper(i + 1, prev_sum, prev)
+                combination.append(c)
+                sum += c
+                helper(i + 1, sum, combination)
                 i += 1
                 cnt += 1
 
             for _ in range(cnt):
-                prev.pop()
+                combination.pop()
 
 
         helper(0, 0, [])
