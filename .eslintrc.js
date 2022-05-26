@@ -35,5 +35,6 @@ module.exports = {
     '@typescript-eslint/no-implied-eval': 'off',
     '@typescript-eslint/no-throw-literal': 'off',
     '@typescript-eslint/return-await': 'off',
+    'no-else-return': 'off',
   },
 }
