@@ -63,8 +63,72 @@ function sortArray(nums: number[]): number[] {
 
   // return result
 
-  quickSort(nums, (a, b) => a - b)
+  // return mergeSort(nums, (a, b) => a - b)
+
+  mergeIteration(nums, (a, b) => a - b)
   return nums
+}
+
+function mergeIteration<T>(arr: T[], compare: (a: T, b: T) => number) {
+  const temp = arr.map((x) => x)
+
+  for (let segment = 1; segment <= arr.length; segment += segment) {
+    for (let begin = 0; begin < arr.length - segment; begin += 2 * segment) {
+      const middle = begin + segment
+      const nextBegin = Math.min(begin + segment * 2, arr.length)
+
+      let a = begin, b = middle
+      let i = begin
+
+      while (a < middle || b < nextBegin) {
+        if (a >= middle) {
+          temp[i++] = arr[b++]
+        } else if (b >= nextBegin) {
+          temp[i++] = arr[a++]
+        } else if (compare(arr[a], arr[b]) <= 0) {
+          temp[i++] = arr[a++]
+        } else {
+          temp[i++] = arr[b++]
+        }
+      }
+
+      // console.log('begin=', begin, 'middle=', middle, 'nextBegin=', nextBegin, arr)
+
+      for (let x = begin; x < nextBegin; x++) {
+        arr[x] = temp[x]
+      }
+    }
+  }
+}
+
+function mergeSortRecursive<T>(arr: T[], compare: (a: T, b: T) => number) {
+  if (arr.length <= 1) {
+    return arr
+  }
+
+  const middle = Math.floor(arr.length / 2)
+  const front = mergeSortRecursive(arr.slice(0, middle), compare)
+  const end = mergeSortRecursive(arr.slice(middle, arr.length), compare)
+
+  const result: T[] = []
+  let i = 0, j = 0
+  while (i < front.length || j < end.length) {
+    if (i >= front.length) {
+      result.push(end[j])
+      j += 1
+    } else if (j >= end.length) {
+      result.push(front[i])
+      i += 1
+    } else if (compare(front[i], end[j]) <= 0) {
+      result.push(front[i])
+      i += 1
+    } else {
+      result.push(end[j])
+      j += 1
+    }
+  }
+
+  return result
 }
 
 class Heap<T> {
@@ -203,3 +267,11 @@ const swap = (arr: any[], i: number, j: number) => {
   arr[j] = temp
 }
 // @lc code=end
+
+console.log(sortArray([]))
+console.log(sortArray([1]))
+console.log(sortArray([1, 2]))
+console.log(sortArray([4, 1, 2]))
+console.log(sortArray([5, 2, 3, 1]))
+console.log(sortArray([5, 1, 1, 2, 0]))
+console.log(sortArray([5, 1, 1, 2, 0, 0]))
