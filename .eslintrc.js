@@ -36,5 +36,6 @@ module.exports = {
     '@typescript-eslint/no-throw-literal': 'off',
     '@typescript-eslint/return-await': 'off',
     'no-else-return': 'off',
+    '@typescript-eslint/no-unused-vars': 'warn',
   },
 }
