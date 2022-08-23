@@ -37,5 +37,6 @@ module.exports = {
     '@typescript-eslint/return-await': 'off',
     'no-else-return': 'off',
     '@typescript-eslint/no-unused-vars': 'warn',
+    'class-methods-use-this': 'off',
   },
 }
